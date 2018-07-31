@@ -1,6 +1,6 @@
 ﻿namespace PoliceService
 {
-    partial class Service1
+    partial class Service
     {
         /// <summary> 
         /// 必需的设计器变量。
