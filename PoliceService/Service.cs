@@ -182,10 +182,11 @@ namespace PoliceService
             socketmsg = JSON.stringify(uid);
             buffer = new byte[1024 * 1024 + 3];
             buffer = Encoding.UTF8.GetBytes(socketmsg);
-            door.socket_send(socketmsg);
+            if(door.socket_send(socketmsg))
+                Log.WriteLog("第一次发送", "");
             //OpenDoorsocketClient.Send(buffer);
-            Log.WriteLog("第一次发送", "");
-         
+
+
         }
 
 
@@ -205,7 +206,7 @@ namespace PoliceService
                 //IPAddress ip = IPAddress.Parse(ipstr);
                 //IPEndPoint point = new IPEndPoint(ip, port);
                 //Sdkservicesocket.Connect(point);
-                //Log.WriteLog("连接Dev", "连接成功");
+                Log.WriteLog("连接Dev", "连接成功");
             }
             catch(Exception e)
             {
@@ -228,7 +229,7 @@ namespace PoliceService
                 //IPAddress ip = IPAddress.Parse(ipstr);
                 //IPEndPoint point = new IPEndPoint(ip, port);
                 //OpenDoorsocket.Connect(point);
-                //Log.WriteLog("连接服务器", "连接成功");
+                Log.WriteLog("连接服务器", "连接成功");
             }
             catch(Exception e)
             {
@@ -246,10 +247,13 @@ namespace PoliceService
              {
                 try
                 {
+
+
+
                     byte[] buffer = new byte[1024 * 1024 * 3];
                     //实际接收到的有效字节数
 
-                    
+
                     //int len = OpenDoorsocketClient.Receive(buffer);
                     //if (len == 0)
                     //{

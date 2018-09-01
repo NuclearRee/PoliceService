@@ -437,6 +437,8 @@ namespace PoliceService.Tools
                 int n = theSocket.Send(cmd);
                 if (n < 1)
                     result = false;
+                else
+                    result = true;
             }
             catch (Exception ee)
             {
